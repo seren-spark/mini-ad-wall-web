@@ -6,3 +6,13 @@ export interface AdForm {
   landingUrl: string
   bid: number
 }
+
+export interface Ad {
+  id: number
+  title: string
+  content: string
+  author: string
+  clicks: number
+  bid: number
+  landingUrl: string
+}

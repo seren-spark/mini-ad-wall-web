@@ -2,7 +2,7 @@
  * @Author: serendipity 2843306836@qq.com
  * @Date: 2025-11-26 20:43:11
  * @LastEditors: serendipity 2843306836@qq.com
- * @LastEditTime: 2025-11-28 22:12:32
+ * @LastEditTime: 2025-11-29 11:48:06
  * @FilePath: \mini-ad-wall-web\src\App.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -13,12 +13,12 @@ import AdDialog from '@/components/AdDialog.vue'
 import AdAPI from './api/ad'
 import type { AdForm } from './types/ad'
 
-interface Ad {
+export interface Ad {
   id: number
   title: string
   content: string
   author: string
-  heat: number
+  clicks: number
   bid: number
   landingUrl: string
 }

@@ -46,12 +46,12 @@
 
 <script setup lang="ts">
 import { ref, reactive } from 'vue'
+import {type Ad} from "@/types/ad.ts" 
 const props = defineProps<{
   clicks: number
   content: string
   title: string
   price: number
-  heat: number
   ad: Ad
 }>()
 

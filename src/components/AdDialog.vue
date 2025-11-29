@@ -47,13 +47,13 @@
 <script setup lang="ts">
 import { ref, reactive } from 'vue'
 import { type AdForm } from '../types/ad'
-import type { FormInstance, FormRules } from 'element-plus'
+import { ElMessage, type FormInstance, type FormRules } from 'element-plus'
 const formRef = ref<FormInstance>()
 const props = withDefaults(
   defineProps<{
     form: AdForm
     modelValue: boolean
-    title: string
+    title?: string
     isEdit?: boolean
   }>(),
   {
@@ -96,14 +96,14 @@ const handleSubmit = async () => {
     return
   }
 
-  await formRef.value.validate((valid) => {
+  await formRef.value.validate((valid:boolean) => {
     console.log('yanzhneg', valid)
 
     if (valid) {
       emit('submit', props.form)
       emit('update:modelValue', false)
     } else {
-      return false
+      ElMessage.error('请完善表单信息后提交');
     }
   })
 }
