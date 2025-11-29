@@ -49,5 +49,8 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            sudo chown -R www-data:www-data /var/www/mini-ad-wall
-            sudo systemctl reload nginx
+            # 1. 修复权限：用服务器实际的 www 用户（替换 www-data）
+            sudo chown -R www:www /var/www/mini-ad-wall
+            sudo chmod -R 755 /var/www/mini-ad-wall
+            # 2. 重启独立 Nginx：用你的实际路径（替换 systemctl 命令）
+            /www/server/nginx/sbin/nginx -s reload -c /www/server/nginx/conf/nginx.conf
